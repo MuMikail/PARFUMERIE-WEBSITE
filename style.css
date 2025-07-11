@@ -1,0 +1,718 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Bebas Neue', sans-serif;
+    overflow-x: hidden;
+    background: #000;
+    color: #fff;
+    width: 100vw;
+    height: 100vh;
+}
+
+.container {
+    position: relative;
+    width: 100vw;
+    height: 100vh;
+    overflow: hidden;
+}
+
+/* Header - ABOUT KIRI, JUDUL TENGAH, CONTACT KANAN */
+.header {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    z-index: 1000;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 2rem 4rem;
+}
+
+/* ABOUT - POJOK KIRI ATAS */
+.nav-left {
+    color: #ccc;
+    text-decoration: none;
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: 1.2rem;
+    letter-spacing: 0;
+    transition: all 0.3s ease;
+    position: relative;
+}
+
+.nav-left:hover {
+    color: #fff;
+}
+
+.nav-left::after {
+    content: '';
+    position: absolute;
+    bottom: -5px;
+    left: 0;
+    width: 0;
+    height: 2px;
+    background-color: #fff;
+    transition: width 0.3s ease;
+}
+
+.nav-left:hover::after {
+    width: 100%;
+}
+
+/* LOGO - TENGAH HEADER */
+.logo {
+    text-align: center;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+}
+
+.logo h1 {
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: 1.5rem;
+    font-weight: 300;
+    letter-spacing: 1px;
+    position: relative;
+    padding: 0.1rem 0;
+}
+
+.logo h1::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 100%;
+    height: 1.5px;
+    background-color: #fff;
+}
+
+.logo h1::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 100%;
+    height: 1.5px;
+    background-color: #fff;
+}
+
+/* CONTACT - POJOK KANAN ATAS */
+.nav-right {
+    color: #ccc;
+    text-decoration: none;
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: 1.2rem;
+    letter-spacing: 0;
+    transition: all 0.3s ease;
+    position: relative;
+}
+
+.nav-right:hover {
+    color: #fff;
+}
+
+.nav-right::after {
+    content: '';
+    position: absolute;
+    bottom: -5px;
+    left: 0;
+    width: 0;
+    height: 2px;
+    background-color: #fff;
+    transition: width 0.3s ease;
+}
+
+.nav-right:hover::after {
+    width: 100%;
+}
+
+/* BOTTOM TEXT - CHOOSE YOUR FRAGRANCE JOURNEY - TEKS BIASA */
+.bottom-text {
+    position: fixed;
+    bottom: 2rem;
+    left: 50%;
+    transform: translateX(-50%);
+    z-index: 1000;
+    text-align: center;
+}
+
+.bottom-text span {
+    color: #ccc;
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: 1.2rem;
+    letter-spacing: 0;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+}
+
+/* SECTION LABELS - FOR HIM & FOR HER - SELALU MUNCUL */
+.section-label-default {
+    position: fixed;
+    bottom: 2rem;
+    z-index: 1000;
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: 3rem;
+    color: #fff;
+    text-transform: uppercase;
+    letter-spacing: 0;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.7);
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+    opacity: 1;
+    transition: all 0.3s ease;
+    pointer-events: none;
+}
+
+/* FOR HIM - POJOK KIRI BAWAH (SELALU MUNCUL) */
+.for-him-label {
+    left: 4rem;
+}
+
+/* FOR HER - POJOK KANAN BAWAH (SELALU MUNCUL) */
+.for-her-label {
+    right: 4rem;
+}
+
+/* SECTION INFO - DESKRIPSI + EXPLORE LINK - MUNCUL SAAT HOVER */
+.section-info {
+    position: fixed;
+    bottom: 13rem;
+    z-index: 1001;
+    max-width: 350px;
+    text-align: left;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+    opacity: 0;
+    transform: translateY(20px);
+    transition: all 0.8s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+    visibility: hidden;
+    pointer-events: none;
+}
+
+/* FOR HIM INFO - POJOK KIRI BAWAH */
+.for-him-info {
+    left: 4rem;
+    text-align: left;
+}
+
+/* FOR HER INFO - POJOK KANAN BAWAH */
+.for-her-info {
+    right: 4rem;
+    text-align: right;
+}
+
+/* SHOW SAAT HOVER */
+.section-info.show {
+    opacity: 1;
+    transform: translateY(0);
+    visibility: visible;
+    pointer-events: auto;
+}
+
+/* DESKRIPSI TEXT */
+.section-description {
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: 1.5rem;
+    color: #fff;
+    line-height: 1.4;
+    margin-bottom: 1rem;
+    opacity: 0.9;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+}
+
+/* EXPLORE FRAGRANCES LINK */
+.explore-link {
+    display: inline-block;
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: 1.5rem;
+    color: #fff;
+    text-decoration: none;
+    text-transform: uppercase;
+    letter-spacing: 0;
+    position: relative;
+    transition: all 0.3s ease;
+    border-bottom: 1px solid #ccc;
+    padding-bottom: 2px;
+    cursor: pointer;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+}
+
+.explore-link:hover {
+    color: #fff;
+    border-bottom-color: #fff;
+}
+
+/* Main Content */
+.main-content {
+    display: flex;
+    height: 100vh;
+    position: relative;
+    width: 100vw;
+    gap: 0;
+    margin: 0;
+    padding: 0;
+}
+
+.perfume-section {
+    position: relative;
+    width: 50%;
+    height: 100vh;
+    overflow: hidden;
+    cursor: pointer;
+    transition: width 0.6s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+    flex-shrink: 0;
+    background: #000;
+    border: none;
+    margin: 0;
+    padding: 0;
+}
+
+/* GANTI DENGAN CLASS-BASED CONTROL - LEBIH CEPAT TRANSITION */
+.perfume-section.js-active {
+    width: 65% !important;
+}
+
+.perfume-section.js-inactive {
+    width: 35% !important;
+}
+
+.image-container {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+    background: #000;
+}
+
+/* GAMBAR TERANG DAN FRESH */
+.perfume-image {
+    width: 105%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center;
+    transition: transform 0.6s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+    filter: brightness(1.2) contrast(1.05) saturate(1.1);
+    border: none;
+    margin: 0;
+    padding: 0;
+}
+
+/* Left Section - Slide dari kiri */
+.left-section .perfume-image {
+    transform: translateX(-3%);
+}
+
+.left-section.js-active .perfume-image {
+    transform: translateX(0%);
+}
+
+/* Right Section - Slide dari kanan */
+.right-section .perfume-image {
+    transform: translateX(-2%);
+}
+
+.right-section.js-active .perfume-image {
+    transform: translateX(-5%);
+}
+
+/* OVERLAY TRANSPARAN - TIDAK GELAP */
+.overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.1);
+    transition: opacity 0.8s ease;
+    z-index: 5;
+}
+
+.perfume-section.js-active .overlay {
+    opacity: 0;
+}
+
+/* Center Text - INDULGE YOUR SENSES DI TENGAH FOTO */
+.center-logo {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    z-index: 100;
+    transition: all 0.8s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+    text-align: center;
+    width: 100%;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+    pointer-events: none;
+}
+
+/* GANTI CSS HOVER DENGAN JS CONTROL */
+.center-logo.js-hidden {
+    opacity: 0;
+    transform: translate(-50%, -50%) translateY(-200px);
+}
+
+.center-text {
+    font-family: 'Bebas Neue', sans-serif;
+    font-weight: 400;
+    color: #fff;
+    text-transform: uppercase;
+    line-height: 0.9;
+    text-shadow: 3px 3px 6px rgba(0, 0, 0, 0.7);
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+}
+
+.center-text .line1 {
+    display: block;
+    font-size: 16rem;
+    letter-spacing: 0;
+    margin-bottom: 0.2rem;
+    text-align: center;
+    margin-right: 555px;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+}
+
+.center-text .line2 {
+    display: block;
+    font-size: 16rem;
+    letter-spacing: 0;
+    text-align: center;
+    margin-left: 170px;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+}
+
+/* Section Background - Bersih tanpa gradient gelap */
+.left-section {
+    background: #000;
+}
+
+.right-section {
+    background: #000;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .header {
+        padding: 1rem 2rem;
+        flex-direction: column;
+        gap: 1rem;
+    }
+    
+    .nav-left, .nav-right {
+        flex: none;
+        font-size: 1rem;
+    }
+    
+    .logo h1 {
+        font-size: 2rem;
+    }
+    
+    .bottom-text {
+        bottom: 1rem;
+    }
+    
+    .bottom-text span {
+        font-size: 1rem;
+    }
+    
+    .section-label-default {
+        font-size: 2.5rem;
+        bottom: 1rem;
+    }
+    
+    .for-him-label {
+        left: 2rem;
+    }
+    
+    .for-her-label {
+        right: 2rem;
+    }
+    
+    .section-info {
+        max-width: 250px;
+        bottom: 4rem;
+    }
+    
+    .for-him-info {
+        left: 2rem;
+    }
+    
+    .for-her-info {
+        right: 2rem;
+    }
+    
+    .section-description {
+        font-size: 0.8rem;
+        margin-bottom: 0.8rem;
+    }
+    
+    .explore-link {
+        font-size: 1rem;
+    }
+    
+    .main-content {
+        flex-direction: column;
+        width: 100vw;
+    }
+    
+    .perfume-section {
+        width: 100% !important;
+        height: 50vh;
+    }
+    
+    .perfume-section.js-active {
+        width: 100% !important;
+        height: 70vh !important;
+    }
+    
+    .perfume-section.js-inactive {
+        width: 100% !important;
+        height: 30vh !important;
+    }
+    
+    .perfume-image {
+        width: 100% !important;
+        transform: translateX(0) !important;
+    }
+    
+    .left-section .perfume-image,
+    .right-section .perfume-image,
+    .left-section.js-active .perfume-image,
+    .right-section.js-active .perfume-image {
+        transform: translateX(0) !important;
+    }
+    
+    .center-text .line1 {
+        font-size: 3rem;
+        letter-spacing: 0;
+        margin-right: 150px;
+    }
+    
+    .center-text .line2 {
+        font-size: 3rem;
+        letter-spacing: 0;
+        margin-left: 50px;
+    }
+}
+
+@media (max-width: 480px) {
+    .header {
+        padding: 1rem;
+    }
+    
+    .nav-left, .nav-right {
+        font-size: 0.9rem;
+    }
+    
+    .logo h1 {
+        font-size: 1.8rem;
+    }
+    
+    .bottom-text span {
+        font-size: 0.9rem;
+    }
+    
+    .section-label-default {
+        font-size: 2rem;
+        bottom: 0.5rem;
+    }
+    
+    .for-him-label {
+        left: 1rem;
+    }
+    
+    .for-her-label {
+        right: 1rem;
+    }
+    
+    .section-info {
+        max-width: 200px;
+        bottom: 3rem;
+    }
+    
+    .for-him-info {
+        left: 1rem;
+    }
+    
+    .for-her-info {
+        right: 1rem;
+    }
+    
+    .section-description {
+        font-size: 0.7rem;
+        margin-bottom: 0.6rem;
+    }
+    
+    .explore-link {
+        font-size: 0.9rem;
+    }
+    
+    .center-text .line1 {
+        font-size: 2.5rem;
+        letter-spacing: 0;
+        margin-right: 100px;
+    }
+    
+    .center-text .line2 {
+        font-size: 2.5rem;
+        letter-spacing: 0;
+        margin-left: 30px;
+    }
+}
+
+/* Animations */
+@keyframes fadeInUp {
+    from {
+        opacity: 0;
+        transform: translateY(30px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.perfume-section.js-active .section-label {
+    animation: fadeInUp 0.6s ease 0.2s both;
+}
+
+/* Smooth transitions */
+* {
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+}
+
+/* Custom scrollbar */
+::-webkit-scrollbar {
+    width: 8px;
+}
+
+::-webkit-scrollbar-track {
+    background: #1a1a1a;
+}
+
+::-webkit-scrollbar-thumb {
+    background: #fff;
+    border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+    background: #ccc;
+}
+
+/* Performance optimizations */
+.perfume-section {
+    will-change: width;
+}
+
+.perfume-image {
+    will-change: transform;
+    backface-visibility: hidden;
+    -webkit-backface-visibility: hidden;
+}
+
+/* Focus states for accessibility */
+.perfume-section:focus-visible {
+    outline: 2px solid #fff;
+    outline-offset: -2px;
+}
+
+/* Keyboard and mobile interactions */
+.perfume-section.keyboard-focus {
+    width: 65% !important;
+    z-index: 10;
+}
+
+.perfume-section.keyboard-focus.left-section .perfume-image {
+    transform: translateX(0%) !important;
+}
+
+.perfume-section.keyboard-focus.right-section .perfume-image {
+    transform: translateX(-5%) !important;
+}
+
+@media (max-width: 768px) {
+    .perfume-section.mobile-active {
+        height: 70vh !important;
+    }
+}
+
+.perfume-section.in-view {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+/* Prevent text selection during animations */
+.perfume-section {
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+}
+
+.section-label-default {
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+}
+
+/* Additional fixes for smooth transitions */
+.perfume-section,
+.perfume-image,
+.center-logo {
+    transform-style: preserve-3d;
+    -webkit-transform-style: preserve-3d;
+}
+
+/* Ensure no gaps between sections */
+.main-content::before,
+.main-content::after {
+    content: '';
+    display: none;
+}
+
+/* Force hardware acceleration for smoother animations */
+.perfume-section.js-active,
+.perfume-section.js-inactive {
+    transform: translateZ(0);
+    -webkit-transform: translateZ(0);
+}
+
+/* Prevent flickering during transitions */
+.perfume-section * {
+    -webkit-backface-visibility: hidden;
+    backface-visibility: hidden;
+}
